@@ -3,7 +3,8 @@ from app.db import connection as connect
 query = """
 CREATE TABLE photo(
     id UUID PRIMARY KEY, 
-    source VARCHAR(255)
+    source VARCHAR(255),
+    date DATE DEFAULT now()
 );
 
 CREATE TABLE attribute(
