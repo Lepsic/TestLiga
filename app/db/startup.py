@@ -15,7 +15,7 @@ CREATE TABLE attribute(
     person_id UUID REFERENCES attribute(id) ON DELETE CASCADE,
     positionX INTEGER NOT NULL,
     positionY INTEGER NOT NULL, 
-    confidence FLOAT CHECK ( 0<confidence<100 ) NOT NULL
+    confidence FLOAT CHECK ( confidence > 0 AND confidence < 100 ) NOT NULL
 );
 """
 
