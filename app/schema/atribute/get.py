@@ -2,4 +2,9 @@ from pydantic import BaseModel
 
 
 class GetAttributeAll(BaseModel):
-    pass
+    positionX: int
+    positionY: int
+    type: str
+    photo_id: str
+    person_id: str
+

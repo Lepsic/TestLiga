@@ -1,5 +1,11 @@
 from pydantic import BaseModel
+from uuid import UUID
+from datetime import datetime
 
 
 class GetPhoto(BaseModel):
-    pass
+    id: UUID
+    source: str
+    date: datetime
+    intruder: int
+

@@ -2,4 +2,6 @@ from pydantic import BaseModel
 
 
 class CreatePhoto(BaseModel):
-    pass
+    photo_source: str
+
+
