@@ -13,7 +13,8 @@ CREATE TABLE attribute(
     photo_id UUID REFERENCES photo(id) NOT NULL,
     person_id UUID REFERENCES attribute(id) ON DELETE CASCADE,
     positionX INTEGER NOT NULL,
-    positionY INTEGER NOT NULL
+    positionY INTEGER NOT NULL, 
+    confidence FLOAT CHECK ( 0<confidence<100 ) NOT NULL 
 );
 """
 
