@@ -4,7 +4,8 @@ query = """
 CREATE TABLE photo(
     id UUID PRIMARY KEY, 
     source VARCHAR(255),
-    date DATE DEFAULT now()
+    date DATE DEFAULT now(),
+    intruder INTEGER
 );
 
 CREATE TABLE attribute(
@@ -14,7 +15,7 @@ CREATE TABLE attribute(
     person_id UUID REFERENCES attribute(id) ON DELETE CASCADE,
     positionX INTEGER NOT NULL,
     positionY INTEGER NOT NULL, 
-    confidence FLOAT CHECK ( 0<confidence<100 ) NOT NULL 
+    confidence FLOAT CHECK ( 0<confidence<100 ) NOT NULL
 );
 """
 
