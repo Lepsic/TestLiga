@@ -1,8 +1,9 @@
 from app.db import connection as connect
 
 query = """
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE photo(
-    id UUID PRIMARY KEY, 
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY, 
     source VARCHAR(255),
     date DATE DEFAULT now(),
     intruder INTEGER

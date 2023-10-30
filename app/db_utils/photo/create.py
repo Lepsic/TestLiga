@@ -6,8 +6,8 @@ from loguru import logger
 
 async def create(model: CreatePhoto) -> None:
     try:
-        query = f"""INSERT INTO {config('PHOTO_TABLE')} (photo_source), VALUES($1)"""
+        query = f"""INSERT INTO {config('PHOTO_TABLE')} (source) VALUES($1)"""
         connection = await conn.connection()
-        await connection.execute(query, model.photo_source)
+        await connection.execute(query, model.photo_source,)
     except Exception as error:
-        logger.error('Error created photo', error)
+        logger.error(error)
