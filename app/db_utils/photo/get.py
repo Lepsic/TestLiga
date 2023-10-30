@@ -10,8 +10,8 @@ async def get_id(photo_id: UUID) -> GetPhoto:
         query = f"SELECT id, source, date, intruder FROM {config('PHOTO_TABLE')} WHERE id = $1"
         connection = await conn.connection()
 
-        record = await connection.fetch(query, photo_id)
+        record = await connection.fetchrow(query, photo_id)
         record = GetPhoto(**record)
         return record
     except Exception as error:
-        logger.error('Error get photo', error)
+        logger.error(error)
