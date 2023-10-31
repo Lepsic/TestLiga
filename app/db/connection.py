@@ -14,7 +14,7 @@ async def connection():
         )
         return connection
     except Exception as error:
-        logger.error('Error bd connection', error)
+        logger.error(error)
 
 
 async def close_connection(connect):

@@ -10,12 +10,12 @@ CREATE TABLE photo(
 );
 
 CREATE TABLE attribute(
-    id UUID PRIMARY KEY,
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
     type VARCHAR(55) NOT NULL CHECK ( type IN ('suit', 'helmet', 'person')),
     photo_id UUID REFERENCES photo(id) NOT NULL,
     person_id UUID REFERENCES attribute(id) ON DELETE CASCADE,
-    positionX INTEGER NOT NULL,
-    positionY INTEGER NOT NULL, 
+    first_point POINT NOT NULL,
+    second_point POINT NOT NULL, 
     confidence FLOAT CHECK ( confidence > 0 AND confidence < 100 ) NOT NULL
 );
 """
