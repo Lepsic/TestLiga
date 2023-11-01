@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from app.db_utils.attribute.create import create_attribute, create_persons
-from app.db_utils.attribute.get import get_by_photo
-from app.schema.atribute.create import CreateAttributesPerson, CreateAttributes
+
+from app.schema.atribute.create import CreateAttributesPersons, CreateAttributes
 from loguru import logger
 from app.service.save_attribute.save import SavePersonService, SaveAttributes
 
@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 @router.post("/create/persons")
-async def create_persons_api(persons: CreateAttributesPerson) -> None:
+async def create_persons_api(persons: CreateAttributesPersons) -> None:
     service = SavePersonService()
     await service.execute(persons)
     if bool(service.error):

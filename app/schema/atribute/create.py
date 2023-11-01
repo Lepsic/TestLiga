@@ -1,32 +1,21 @@
 from pydantic import BaseModel, Field
 from uuid import UUID
-from enum import Enum
 from typing import List
+from app.schema.atribute.utils.base import Attribute, TypeEnum
 
 
-class TypeEnum(str, Enum):
-    helmet = 'helmet'
-    suit = 'suit'
-    person = 'person'
-
-
-class Point(BaseModel):
-    x_position: int
-    y_position: int
-
-
-class Attribute(BaseModel):
-    first_point: Point
-    second_point: Point
-    confidence: float
-
-
-class CreateAttributesPerson(BaseModel):
+class CreateAttributesPersons(BaseModel):
+    """Данные которые приходят от сетки"""
     photo_id: UUID
     attribute: List[Attribute]
 
 
 class CreateAttributes(BaseModel):
+    """Получение атрибутов(не person) от сетки"""
     photo_id: UUID
+    person_id: UUID = Field(default=None)
     type: TypeEnum
     attribute: List[Attribute]
+
+
+
