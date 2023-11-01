@@ -7,4 +7,8 @@ class GetPhoto(BaseModel):
     id: UUID
     source: str
     date: datetime
-    intruder: int = Field(default=-1)  # елси значение еще не определено
+    intruder: int = Field(default=None)  # елси значение еще не определено
+
+
+class GetCountIntruder(BaseModel):
+    intruder_count: int
